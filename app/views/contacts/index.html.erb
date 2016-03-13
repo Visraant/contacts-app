@@ -1,10 +1,11 @@
-<h1>All Contacts:</h1>
-
-<% @contacts.each do |contact| %>
-  <h2><a href="/contacts/<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name %> </a></h2>
-  <p>Email: <%= contact.email %></p>
-  <p>Phone Number: <%= contact.phone_number %></p>
-  <% end %>
-<div>
-    <h2><%= link_to "Add a new contact", "/contacts/new" %></h2>
+    <% @contacts.each do |contact| %>
+    <div class="panel panel-default">
+  <div class="panel-body">
+  </div>
+    <h2><a href="/contacts/<%= contact.id %>"><%= contact.first_name %> <%= contact.last_name %> </a></h2>
+    <p>Email: <%= contact.email %></p>
+    <p>Phone Number: <%= contact.phone_number %></p>
+    <% end %>
+  </div>
 </div>
+ <div class="panel-footer"><h2><%= link_to "Add a new contact", "/contacts/new" %></h2></div>
