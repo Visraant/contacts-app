@@ -13,6 +13,7 @@ class ContactsController < ApplicationController
       email: params[:email],
       phone_number: params[:phone_number]
     )
+    redirect_to '/contacts'
   end
 
   def show
@@ -34,6 +35,7 @@ class ContactsController < ApplicationController
       email: params[:email],
       phone_number: params[:phone_number]
     )
+    redirect_to '/contacts'
   end
 
   def destroy
