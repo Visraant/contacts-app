@@ -1,0 +1,6 @@
+class AddAttributestoContacts < ActiveRecord::Migration
+  def change
+    add_column :contacts, :middle_name, :string
+    add_column :contacts, :bio, :text
+  end
+end

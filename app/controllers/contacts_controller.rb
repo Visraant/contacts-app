@@ -18,7 +18,7 @@ class ContactsController < ApplicationController
 
   def show
     contact_id = params[:id]
-    @contact = Contact.find_by(id: contact_id)
+    @contact = Contact.find(params[:id])
   end
 
   def edit
@@ -42,5 +42,9 @@ class ContactsController < ApplicationController
     @contact = Contact.find(params[:id])
     @contact.destroy
     redirect_to '/contacts'
+  end
+
+  def coordinates
+    coordinates = Geocoder.coordinates(@address)
   end
 end

@@ -1,6 +1,16 @@
-<h1><%= @contact.first_name %> <%= @contact.last_name %></h1>
-<p><%= @contact.email %></p>
-<p><%= @contact.phone_number %></p>
-<p><%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit" %></p>
-<p><%= link_to "Delete Contact", "/contacts/#{@contact.id}", method: :delete %></p>
-<p><%= link_to "Back to All Contacts", "/contacts" %></p>
+<div class="row">
+
+  <div class="col-md-4">
+    <div class="well">
+
+      <h1><%= @contact.first_name %> <%= @contact.last_name %></h1>
+      <h3>Short Bio: <%= @contact.bio %></h3>
+      <p><%= @contact.email %></p>
+      <p><%= @contact.country_code %></p>
+      <p>Last Updated: <%= @contact.friendly_time %></p>
+      <p><%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit" %></p>
+      <p><%= link_to "Delete Contact", "/contacts/#{@contact.id}", method: :delete %></p>
+      <p><%= link_to "Back to All Contacts", "/contacts" %></p>
+    </div>
+  </div>
+</div>
