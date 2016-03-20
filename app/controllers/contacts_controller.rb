@@ -1,17 +1,26 @@
 class ContactsController < ApplicationController
   def index
-    @contacts = Contact.all
+    @contacts = current_user.contacts
   end
 
   def new
   end
 
   def create
+    address = params[:address]
+    # if address == ""
+    #   address = "2012 N. Western Ave, Chicago, IL 60608"
+    # end
+    # coordinates = Geocoder.coordinates(params[:address])
+
     Contact.create(
       first_name: params[:first_name],
       last_name: params[:last_name],
       email: params[:email],
-      phone_number: params[:phone_number]
+      phone_number: params[:phone_number],
+      # latitude: coordinates[0],
+      # longitude: coordinates[1],
+      user_id: current_user.id
     )
     flash[:success] = "Contact successfully created!"
     redirect_to '/contacts'

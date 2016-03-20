@@ -70,12 +70,6 @@
 
 <div class="container-fluid">
 
-<% if current_user %>
-  <%= link_to "Sign In", "/users/sign_in" %>
-  <%= link_to "Sign Up", "/users/sign_up" %>
-<% else %>
-  <%= link_to "Sign Out", "/users/sign_out" %>
-<% end %>
 
   <% flash.each do |name, message| %>
   <div class="alert alert-<%= name %> alert-dismissible fade in" role="alert">
