@@ -34,7 +34,9 @@
             <li><a href="/contacts">Harry Potter</a></li>
             <li><a href="/contacts">Katniss Everdeen</a></li>
             <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
+            <% Group.all.each do |group| %>
+              <li><a href="/contacts?group=<%= group.name %>">Show <%= group.name %> only</a></li>
+            <% end %>
             <li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>
           </ul>

@@ -1,7 +1,11 @@
 class ContactsController < ApplicationController
   def index
     if current_user
-      @contacts = current_user.contacts
+      if params[:group]
+        @contacts = Group.find_by(name: params[:group]).contacts
+      else
+        @contacts = current_user.contacts
+      end
     else
       redirect_to "/users/sign_in"
     end
@@ -25,7 +29,7 @@ class ContactsController < ApplicationController
       # latitude: coordinates[0],
       # longitude: coordinates[1],
       user_id: current_user.id
-    )
+      )
     flash[:success] = "Contact successfully created!"
     redirect_to '/contacts'
   end
@@ -51,7 +55,7 @@ class ContactsController < ApplicationController
       last_name: params[:last_name],
       email: params[:email],
       phone_number: params[:phone_number]
-    )
+      )
     flash[:success] = "Contact successfully updated!"
     redirect_to '/contacts'
   end
