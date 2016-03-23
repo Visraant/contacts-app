@@ -11,7 +11,7 @@
       <p><%= link_to "Edit Contact", "/contacts/#{@contact.id}/edit" %></p>
       <p><%= link_to "Delete Contact", "/contacts/#{@contact.id}", method: :delete %></p>
       <p><%= link_to "Back to All Contacts", "/contacts" %></p>
-      <p>Groups: <% @group.contacts.each do |group| %></p>
+      <p>Groups: <% @contact.groups.each do |group| %></p>
       <ul>
         <li><a href="/contacts?group=<%= group.name %>"> <%= group.name %> </a></li>
       </ul>
